@@ -74,13 +74,13 @@ void ArmyPool::Serialize(CivArchive &archive)
 		ObjPool::Serialize(archive);
 
 		count = 0;
-		for(i = 0; i < k_OBJ_POOL_TABLE_SIZE; i++) {
+		for(size_t i = 0; i < k_OBJ_POOL_TABLE_SIZE; i++) {
 			if(m_table[i])
 				count++;
 		}
 
 		archive << count;
-		for(i = 0; i < k_OBJ_POOL_TABLE_SIZE; i++) {
+		for(size_t i = 0; i < k_OBJ_POOL_TABLE_SIZE; i++) {
 			if(m_table[i])
 				((ArmyData*)(m_table[i]))->Serialize(archive);
 		}

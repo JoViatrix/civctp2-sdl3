@@ -1814,10 +1814,10 @@ void CtpAi::AddSettleTargets(const PLAYER_INDEX playerId)
 		{
 			SettleMap::SettleTarget settle_target = *iter;
 
-			if ( (!g_theWorld->IsWater(settle_target.m_pos)) &&
-				 (g_theGoalDB->Get(goal_type)->GetTargetTypeSettleLand()) ||
-				 (g_theWorld->IsWater(settle_target.m_pos)) &&
-				 (g_theGoalDB->Get(goal_type)->GetTargetTypeSettleSea()))
+			if ( ((!g_theWorld->IsWater(settle_target.m_pos)) &&
+				 (g_theGoalDB->Get(goal_type)->GetTargetTypeSettleLand())) ||
+				 ((g_theWorld->IsWater(settle_target.m_pos)) &&
+				 (g_theGoalDB->Get(goal_type)->GetTargetTypeSettleSea())))
 			{
 				Goal_ptr goal_ptr = new Goal();
 				goal_ptr->Set_Type( goal_type );
